@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://0u1suthmuj4l"]
+
+[ext_resource type="Script" path="res://projectile.gd" id="1_5grjn"]
+[ext_resource type="Texture2D" uid="uid://d3qc006wyoijc" path="res://ASSETS/shot 1.png" id="1_h5fyo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h0k2l"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="Gradient" id="Gradient_v2dem"]
+offsets = PackedFloat32Array(0, 0.577922)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2rmbw"]
+gradient = SubResource("Gradient_v2dem")
+height = 128
+fill = 1
+fill_from = Vector2(0.481651, 0.463303)
+
+[node name="Projectile" type="Area2D"]
+position = Vector2(0, -1)
+script = ExtResource("1_5grjn")
+
+[node name="Shot1" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+texture = ExtResource("1_h5fyo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_h0k2l")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 31
+visibility_layer = 15
+z_index = 2
+position = Vector2(-0.0488683, -3.9997)
+rotation = -0.0131383
+energy = 1.07
+range_z_max = 1025
+range_layer_min = -512
+range_layer_max = 512
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_2rmbw")

@@ -13,13 +13,5 @@ func _physics_process(delta):
 		queue_free()
 
 
-func _on_body_entered(body):
-	if body.has_method("damage"):
-		
-		var attack = Attack.new()
-		attack.attack_damage = 5
-		attack.pierce = 1
-		body.damage(attack)
-	queue_free()
 
 

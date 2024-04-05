@@ -1,4 +1,5 @@
 extends Area2D
+class_name Projectile
 
 var travelled_distance = 0
 var speed: int
@@ -27,7 +28,10 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.has_method("damage"):
-		body.health -= damage
-		queue_free()
+		
+		var attack = Attack.new()
+		attack.attack_damage = damage
+		body.damage(attack)
+	queue_free()
 
 

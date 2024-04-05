@@ -19,7 +19,6 @@ func die():
 	get_node("Death_explosion").emitting = true
 
 
-
 func damage(attack: Attack):
 	health -= attack.attack_damage
 	if health <= 0:
